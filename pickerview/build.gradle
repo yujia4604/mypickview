@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.novoda.bintray-release'
+//apply from: 'publish.gradle'
+
+android {
+  compileSdkVersion 26
+  buildToolsVersion '28.0.3'
+
+  defaultConfig {
+    minSdkVersion 15
+    targetSdkVersion 26
+    //    versionCode 1
+    //    versionName "1.0"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  lintOptions {
+    checkReleaseBuilds false
+    // Or, if you prefer, you can continue to check for errors in release builds,
+    // but continue the build even when errors are found:
+    abortOnError false
+  }
+
+  // 如果你开源库中有中文注释在根目录的build.gradle中的all加入格式
+  tasks.withType(Javadoc) {
+    options {
+      encoding "UTF-8"
+      charSet 'UTF-8'
+      links "http://docs.oracle.com/javase/7/docs/api"
+    }
+
+    // 解决Javadoc 出错  Javadoc generation failed. Generated Javadoc options file (useful for troubleshooting):
+    options.addStringOption('Xdoclint:none', '-quiet')
+  }
+}
+
+dependencies {
+
+  provided "com.android.support:support-v4:26.1.0"
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="150dp"
+  android:background="@android:color/transparent"
+  >
+
+  <TextView
+    android:id="@+id/btn_cancel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:text="取消"
+    android:textColor="#00f"
+    android:textSize="18dp" />
+
+
+  <TextView
+    android:id="@+id/btn_confirm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_gravity="right"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:text="确定"
+    android:textColor="#00f"
+    android:textSize="18dp" />
+
+  <View
+    android:id="@+id/divider"
+    android:layout_width="match_parent"
+    android:layout_marginTop="25dp"
+    android:layout_height="1dp"
+    android:layout_gravity="top" />
+
+  <EditText
+      android:id="@+id/editText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="26dp"
+      android:ems="10"
+      android:layout_gravity="center"
+      android:inputType="numberDecimal" />
+</FrameLayout>

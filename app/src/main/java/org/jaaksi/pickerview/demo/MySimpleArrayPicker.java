@@ -4,11 +4,15 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.Toast;
 
+import org.jaaksi.pickerview.adapter.ArrayWheelAdapter;
 import org.jaaksi.pickerview.adapter.NumericWheelAdapter;
 import org.jaaksi.pickerview.picker.BasePicker;
 import org.jaaksi.pickerview.topbar.DefaultTopBar;
 import org.jaaksi.pickerview.widget.DefaultCenterDecoration;
 import org.jaaksi.pickerview.widget.PickerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySimpleArrayPicker  extends BasePicker {
 
@@ -28,7 +32,12 @@ public class MySimpleArrayPicker  extends BasePicker {
                         .setLineColor(Color.LTGRAY)
                         .setDrawable(Color.TRANSPARENT);
         view.setCenterDecoration(centerDecoration);
-        view.setAdapter(new NumericWheelAdapter(2013,2018));
+        List<String> list=new ArrayList<>();
+
+        list.add("sssssssssssss");
+        list.add("ssssssssssssssssssssssssss");
+
+        view.setAdapter(new ArrayWheelAdapter(list));
     }
     @Override
     protected void onConfirm() {

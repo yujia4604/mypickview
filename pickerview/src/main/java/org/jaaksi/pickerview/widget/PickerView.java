@@ -33,6 +33,7 @@ public class PickerView<T> extends BasePickerView<T> {
   public static int sOutTextSize = 18; // dp
   /** default center text size 22dp */
   public static int sCenterTextSize = 22; // dp
+
   private int mOutTextSize; // 最小的字体
   private int mCenterTextSize; // 最大的字体
   /** default center text color */
@@ -43,8 +44,10 @@ public class PickerView<T> extends BasePickerView<T> {
   private int mCenterColor = sCenterColor; // 中间选中item的颜色
   private int mOutColor = sOutColor; // 上下两边的颜色
   private Layout.Alignment mAlignment = Layout.Alignment.ALIGN_CENTER; // 对齐方式,默认居中
+  private float defaultItemWidth=1000;
 
-  public PickerView(Context context) {
+
+    public PickerView(Context context) {
     this(context, null);
   }
 
@@ -61,6 +64,9 @@ public class PickerView<T> extends BasePickerView<T> {
     init(attrs);
   }
 
+  public void setItemWidth(int width){
+        this.defaultItemWidth=width;
+  }
   private void init(AttributeSet attrs) {
     if (attrs != null) {
       TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.PickerView);
@@ -177,7 +183,7 @@ public class PickerView<T> extends BasePickerView<T> {
 
     // 不换行
     StaticLayout layout =
-      new StaticLayout(text, 0, text.length(), mPaint, Util.dip2px(getContext(), 1000), mAlignment,
+      new StaticLayout(text, 0, text.length(), mPaint, Util.dip2px(getContext(), defaultItemWidth), mAlignment,
         1.0F, 0.0F, true, null, 0);
     float x = 0;
     float y = 0;
